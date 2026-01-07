@@ -10,3 +10,7 @@ conda list -n base
 conda list
 conda install spyder
 conda search spyder
+
+conda remove plotly --force-remove
+conda install -c conda-forge plotly=5.22.0
+conda list plotly
