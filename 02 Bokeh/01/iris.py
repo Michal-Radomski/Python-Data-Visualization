@@ -8,6 +8,7 @@ from bokeh.models import (  # type: ignore[import-not-found]
     Range1d,
     ResetTool,
     Title,
+    WheelZoomTool,
 )
 from bokeh.plotting import figure  # type: ignore[import-not-found]
 from bokeh.sampledata.iris import flowers  # type: ignore[import-not-found]
@@ -19,7 +20,8 @@ output_file("iris.html")
 f = figure(title="Iris Morphology", width=1200, height=700)
 
 # Style the tools
-f.tools = [PanTool(), ResetTool()]
+tools = [PanTool(), ResetTool(), WheelZoomTool()]
+f.add_tools()
 hover = HoverTool(tooltips=[("Species", "@species"), ("Sepal Width", "@sepal_width")])
 f.add_tools(hover)
 # f.toolbar_location = "above"
@@ -90,7 +92,7 @@ f.circle(
     size=flowers["sepal_width"][flowers["species"] == "setosa"] * 4,
     fill_alpha=0.2,
     color=flowers["color"][flowers["species"] == "setosa"],
-    # legend="Setosa",
+    legend_label="Setosa",
 )
 
 f.circle(
@@ -99,7 +101,7 @@ f.circle(
     size=flowers["sepal_width"][flowers["species"] == "versicolor"] * 4,
     fill_alpha=0.2,
     color=flowers["color"][flowers["species"] == "versicolor"],
-    # legend="Versicolor",
+    legend_label="Versicolor",
 )
 
 f.circle(
@@ -108,8 +110,18 @@ f.circle(
     size=flowers["sepal_width"][flowers["species"] == "virginica"] * 4,
     fill_alpha=0.2,
     color=flowers["color"][flowers["species"] == "virginica"],
-    # legend="Virginica",
+    legend_label="Virginica",
 )
+
+# Style the legend
+f.legend.location = (575, 555)
+f.legend.location = "top_left"
+# f.legend.background_fill_alpha = 0
+f.legend.border_line_color = None
+f.legend.margin = 10
+f.legend.padding = 18
+f.legend.label_text_color = "olive"
+f.legend.label_text_font = "times"
 
 # Save and show the figure
 show(f)
