@@ -2,6 +2,7 @@
 
 # Importing libraries
 from bokeh.io import output_file, show  # type: ignore[import-not-found]
+from bokeh.models import Title  # type: ignore[import-not-found]
 from bokeh.plotting import figure  # type: ignore[import-not-found]
 from bokeh.sampledata.iris import flowers  # type: ignore[import-not-found]
 
@@ -29,6 +30,15 @@ f.circle(
     fill_alpha=0.6,
     size=8,
 )
+
+f.title.text = "Iris Morphology"
+f.title.text_font_size = "40px"  # Adjust size
+f.title.text_color = "navy"  # Change color
+f.title.text_font_style = "bold"  # Bold, italic, etc.
+f.title.align = "center"  # left, center, right
+f.title.background_fill_color = "lightgray"  # Optional background
+
+f.add_layout(Title(text="Subtitle", text_font_style="italic"), "above")
 
 # Save and show the figure
 show(f)
