@@ -2,7 +2,13 @@
 
 # Importing libraries
 from bokeh.io import output_file, show  # type: ignore[import-not-found]
-from bokeh.models import Range1d, Title  # type: ignore[import-not-found]
+from bokeh.models import (  # type: ignore[import-not-found]
+    HoverTool,
+    PanTool,
+    Range1d,
+    ResetTool,
+    Title,
+)
 from bokeh.plotting import figure  # type: ignore[import-not-found]
 from bokeh.sampledata.iris import flowers  # type: ignore[import-not-found]
 
@@ -11,6 +17,14 @@ output_file("iris.html")
 
 # Create the figure object
 f = figure(title="Iris Morphology", width=1200, height=700)
+
+# Style the tools
+f.tools = [PanTool(), ResetTool()]
+hover = HoverTool(tooltips=[("Species", "@species"), ("Sepal Width", "@sepal_width")])
+f.add_tools(hover)
+# f.toolbar_location = "above"
+# f.toolbar.logo = None
+
 
 # Add axis labels
 f.xaxis.axis_label = "Petal Length (cm)"
