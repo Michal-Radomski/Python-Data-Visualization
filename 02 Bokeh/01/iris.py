@@ -81,5 +81,35 @@ f.ygrid.grid_line_alpha = 0.6
 f.grid.grid_line_dash = [5, 3]
 
 
+# Adding glyphs
+flowers["color"] = [colormap[x] for x in flowers["species"]]
+
+f.circle(
+    x=flowers["petal_length"][flowers["species"] == "setosa"],
+    y=flowers["petal_width"][flowers["species"] == "setosa"],
+    size=flowers["sepal_width"][flowers["species"] == "setosa"] * 4,
+    fill_alpha=0.2,
+    color=flowers["color"][flowers["species"] == "setosa"],
+    # legend="Setosa",
+)
+
+f.circle(
+    x=flowers["petal_length"][flowers["species"] == "versicolor"],
+    y=flowers["petal_width"][flowers["species"] == "versicolor"],
+    size=flowers["sepal_width"][flowers["species"] == "versicolor"] * 4,
+    fill_alpha=0.2,
+    color=flowers["color"][flowers["species"] == "versicolor"],
+    # legend="Versicolor",
+)
+
+f.circle(
+    x=flowers["petal_length"][flowers["species"] == "virginica"],
+    y=flowers["petal_width"][flowers["species"] == "virginica"],
+    size=flowers["sepal_width"][flowers["species"] == "virginica"] * 4,
+    fill_alpha=0.2,
+    color=flowers["color"][flowers["species"] == "virginica"],
+    # legend="Virginica",
+)
+
 # Save and show the figure
 show(f)
