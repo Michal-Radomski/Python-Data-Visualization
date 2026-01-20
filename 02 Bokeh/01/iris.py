@@ -2,7 +2,7 @@
 
 # Importing libraries
 from bokeh.io import output_file, show  # type: ignore[import-not-found]
-from bokeh.models import Title  # type: ignore[import-not-found]
+from bokeh.models import Range1d, Title  # type: ignore[import-not-found]
 from bokeh.plotting import figure  # type: ignore[import-not-found]
 from bokeh.sampledata.iris import flowers  # type: ignore[import-not-found]
 
@@ -51,7 +51,21 @@ f.xaxis.minor_tick_in = -6
 f.xaxis.axis_label = "Petal Length"
 f.yaxis.axis_label = "Petal Width"
 f.axis.axis_label_text_color = "blue"
-f.axis.major_label_text_color = "orange"
+f.axis.major_label_text_color = "orangered"
+
+# Axes geometry
+f.x_range = Range1d(start=0, end=10)
+f.y_range = Range1d(start=0, end=5)
+f.xaxis.bounds = (2, 6)
+f.xaxis[0].ticker.desired_num_ticks = 2
+f.yaxis[0].ticker.desired_num_ticks = 2
+f.yaxis[0].ticker.num_minor_ticks = 10
+
+# Style the grid
+f.xgrid.grid_line_color = None
+f.ygrid.grid_line_alpha = 0.6
+f.grid.grid_line_dash = [5, 3]
+
 
 # Save and show the figure
 show(f)
