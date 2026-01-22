@@ -1,5 +1,5 @@
-# * Run: python3 -m bokeh serve script_01.py
 # Importing libraries
+# * Run: python3 -m bokeh serve script_01.py or bokeh serve script_01.py --port 5006
 from bokeh.io import curdoc  # type: ignore[import-not-found]
 from bokeh.layouts import layout  # type: ignore[import-not-found]
 from bokeh.models import ColumnDataSource  # type: ignore[import-not-found]
