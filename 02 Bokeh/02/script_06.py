@@ -1,4 +1,4 @@
-# Scraping example
+# Scraping example (includes error ?)
 # * Instead of Streaming Financial Data - Webscraping
 import time
 from datetime import datetime
