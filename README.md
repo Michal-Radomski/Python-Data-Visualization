@@ -9,3 +9,5 @@ Files created during Python data visualization courses from Udemy.com
 3. [Introduction to Matplotlib](https://www.udemy.com/course/introduction-to-matplotlib-for-complete-beginners-chapter)
 
 4. [Data Visualization in Python](https://www.udemy.com/course/matplotlib-for-data-visualization-with-python-programming-language)
+
+5. [Astronomy Research Data Analysis with Python](https://www.udemy.com/course/astronomy-research-data-analysis-with-python)
